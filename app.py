@@ -1,9 +1,10 @@
 import streamlit as st
-from streamlit_webrtc import webrtc_streamer, VideoProcessorBase
+from streamlit_webrtc import webrtc_streamer, VideoProcessorBase, WebRtcMode
 import cv2
 import mediapipe as mp
 import av
 import numpy as np
+from turn import get_ice_servers
 
 class PoseEstimationProcessor(VideoProcessorBase):
     def __init__(self) -> None:
@@ -44,9 +45,13 @@ def main():
     if is_local:
         webrtc_streamer(key="example", video_processor_factory=PoseEstimationProcessor)
     else:
-        rtc_configuration = {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
         # クラウド環境用のSTUN/TURNサーバー設定をここに追加
-        webrtc_streamer(key="example", video_processor_factory=PoseEstimationProcessor, rtc_configuration=rtc_configuration)
+        webrtc_ctx=webrtc_streamer(
+            key="example", 
+            mode=WebRtcMode.SENDRECV,
+            video_processor_factory=PoseEstimationProcessor, 
+            rtc_configuration={"iceServers": get_ice_servers()})
+        st.session_state["started"] = webrtc_ctx.state.playing
 
 if __name__ == "__main__":
     main()
