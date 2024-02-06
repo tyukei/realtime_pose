@@ -9,7 +9,7 @@ from turn import get_ice_servers
 class PoseEstimationProcessor(VideoProcessorBase):
     def __init__(self) -> None:
         self.pose = mp.solutions.pose.Pose()
-        self.frame_skip_ratio = 10
+        self.frame_skip_ratio = 3
         self.frame_count = 0
         self.last_image = None
         self.last_pose_landmarks = None
