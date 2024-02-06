@@ -13,6 +13,13 @@ streamlit run app.py
 ```
 
 ## library
-- straemlit
-- opencv
-- mediapipe
+- [straemlit](https://streamlit.io/)
+- [opencv](https://opencv.org/)
+- [mediapipe](https://github.com/google/mediapipe)
+
+
+## Streamlit Cloud
+I found solution to run this app on streamlit cloud
+- make packages.txt
+- use pip install opencv-python-headless
+- set STUN/TURN server
