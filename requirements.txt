@@ -2,3 +2,4 @@ streamlit
 opencv-python-headless
 streamlit-webrtc
 mediapipe
+turn
