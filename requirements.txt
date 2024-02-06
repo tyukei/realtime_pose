@@ -1,3 +1,4 @@
 streamlit 
 opencv-python
 streamlit-webrtc
+mediapipe
