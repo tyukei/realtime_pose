@@ -38,9 +38,17 @@ class PoseEstimationProcessor(VideoProcessorBase):
 
 def main():
     st.title("リアルタイム骨格検出 with MediaPipe")
+    st.markdown(
+"""
+1. STARTボタンを押してカメラを起動します。
+2. mediapipeを起動するのに30秒ほど待ちます。
+3. カメラが起動したら、カメラの前でポーズをとってみましょう。
+* M1 Mac Google Chromeでの動作を確認しています。
+"""
+    )
     
     # 実行環境の選択
-    is_local = st.checkbox("ローカルで実行しますか？", value=True)
+    is_local = st.checkbox("ローカルで実行しますか？", value=False)
     
     if is_local:
         webrtc_streamer(key="example", video_processor_factory=PoseEstimationProcessor)
