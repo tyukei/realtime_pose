@@ -1,5 +1,6 @@
 # realtime_pose
 
+<img width="256" alt="image" src="https://github.com/tyukei/realtime_pose/assets/63638636/98b563a9-bc66-4851-8027-ae4d13c330d9">
 
 
 ## Setup
